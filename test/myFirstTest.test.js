@@ -62,3 +62,31 @@ describe("Matcher Methods", () => {
     expect(shoppingList).toContain("Milk");
   });
 });
+
+//testing primitive and refrence types equality
+//toequal compares refrence types
+describe("testing Refrence equality", () => {
+  const user = {
+    name: "Aloo",
+    age: 45,
+  };
+  test("should return a user object with the age of 45", () => {
+    expect(user).toEqual({
+      name: "Aloo",
+      age: 45,
+    });
+
+    expect(user).toEqual(
+      expect.objectContaining({
+        name: expect.any(String),
+        age: expect.any(Number),
+      })
+    );
+  });
+  test("array should contain Apples, Bananas, Carrots,Eggs", () => {
+    let myArray = ["Apples", "Bananas", "Carrots", "Eggs"];
+    expect(myArray).toEqual(["Apples", "Bananas", "Carrots", "Eggs"]);
+    expect(myArray).toEqual(expect.arrayContaining(["Carrots"]));
+    expect(myArray).toEqual(expect.arrayContaining([expect.any(String)]));
+  });
+});
