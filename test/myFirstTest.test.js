@@ -8,6 +8,7 @@ describe("number operations", () => {
 });
 
 describe("Matcher Methods", () => {
+  //numbers
   test("check if a number is undefined", () => {
     let b = undefined;
     expect(b).toBeFalsy();
@@ -31,4 +32,16 @@ describe("Matcher Methods", () => {
     expect(x + y).toBeGreaterThan(10);
     expect(x + y).toBeGreaterThanOrEqual(10);
   });
+  //strings
+  it("should not have I", () => {
+    let team = "Mauano";
+
+    expect(team).not.toMatch(/I/i);
+  });
+  test("there is 'stop' in christopher", () => {
+    let team = "christopher";
+
+    expect(team).toMatch(/stop/i);
+  });
+  /
 });
