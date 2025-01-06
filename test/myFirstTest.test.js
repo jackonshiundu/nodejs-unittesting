@@ -43,5 +43,22 @@ describe("Matcher Methods", () => {
 
     expect(team).toMatch(/stop/i);
   });
-  /
+  //arrays
+  let shoppingList = [
+    "Apples",
+    "Bananas",
+    "Carrots",
+    "Eggs",
+    "Milk",
+    "Bread",
+    "Cheese",
+    "Chicken",
+    "Tomatoes",
+    "Oranges",
+  ];
+  //all tests are case sensitive
+  test("should not have PS5", () => {
+    expect(shoppingList).not.toContain("PS5");
+    expect(shoppingList).toContain("Milk");
+  });
 });
