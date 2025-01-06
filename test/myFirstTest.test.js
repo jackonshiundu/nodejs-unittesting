@@ -1,3 +1,5 @@
+const { sum, deleteUserById } = require("../utils/helper");
+
 describe("number operations", () => {
   test("one plu two", () => {
     expect(2 + 1).toBe(3);
@@ -88,5 +90,28 @@ describe("testing Refrence equality", () => {
     expect(myArray).toEqual(["Apples", "Bananas", "Carrots", "Eggs"]);
     expect(myArray).toEqual(expect.arrayContaining(["Carrots"]));
     expect(myArray).toEqual(expect.arrayContaining([expect.any(String)]));
+  });
+});
+
+//testing functions
+describe("testing importtant funcctuins", () => {
+  test("sum function should addd 2 numbers", () => {
+    expect(sum(4, 5)).toBe(9);
+  });
+
+  test("delete user by id", () => {
+    let users = [
+      { id: 1, name: "Alice", age: 25 },
+      { id: 2, name: "Bob", age: 30 },
+      { id: 3, name: "Charlie", age: 22 },
+      { id: 4, name: "David", age: 28 },
+      { id: 5, name: "Eva", age: 35 },
+    ];
+    expect(deleteUserById(users, 5)).toEqual([
+      { id: 1, name: "Alice", age: 25 },
+      { id: 2, name: "Bob", age: 30 },
+      { id: 3, name: "Charlie", age: 22 },
+      { id: 4, name: "David", age: 28 },
+    ]);
   });
 });
